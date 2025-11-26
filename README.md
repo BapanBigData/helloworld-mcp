@@ -41,6 +41,33 @@ python -m src.weather
 mcp dev src/weather.py
 ```
 
+### Running as a Local MCP Server in Popular Clients
+
+You can also run this MCP server locally from clients/hosts like Claude Desktop, Cursor, VS Code, etc., using the following configuration. **Make sure you have the `uv` package manager installed. Adjust the `--directory` path to match your own project location.**
+
+Add or update your mcpServers configuration (e.g. in your host/editor settings):
+
+```json
+{
+  "mcpServers": {
+    "weather": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "D:\\model-context-protocol\\HelloWorld-mcp",
+        "run",
+        "src/weather.py"
+      ]
+    }
+  }
+}
+```
+
+> **Note:**
+>
+> - Change the directory path to where your project is located.
+> - `uv` must be installed globally or available in your environment. ([see uv documentation](https://github.com/astral-sh/uv))
+
 ## Tool Implemented
 
 `get_weather(location: str) -> str`: Returns formatted weather information for a specific city, country, or ZIP code.
